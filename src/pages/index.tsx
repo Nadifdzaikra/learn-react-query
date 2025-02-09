@@ -10,6 +10,7 @@ import {
   useDeleteProduct,
   type Product,
 } from "../hooks/useProduct";
+import { useState } from "react";
 // import axios from "axios"
 interface Task {
   id?: number;
@@ -38,6 +39,8 @@ const useCreateTask = () => {
 };
 
 export default function Home() {
+  const [limit, setLimit] = useState<number>(5);
+  const [sort, setSort] = useState<string | undefined>("");
   const {
     data: products,
     isLoading: productLoading,

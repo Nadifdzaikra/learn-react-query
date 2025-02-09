@@ -10,8 +10,11 @@ export interface Product {
 const API_URL = "https://fakestoreapi.com/products";
 
 // Fetch semua produk
-export const fetchProducts = async (): Promise<Product[]> => {
-  const res = await fetch(API_URL);
+export const fetchProducts = async (
+  limit: number = 5,
+  sort?: string
+): Promise<Product[]> => {
+  const res = await fetch(`${API_URL}?limit=${limit}&sort=${sort}`);
   if (!res.ok) throw new Error(`Error ${res.status}: ${await res.text()}`);
   return res.json();
 };

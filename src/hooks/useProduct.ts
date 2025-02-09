@@ -9,10 +9,10 @@ import {
 export type { Product };
 
 // Hook untuk fetch produk
-export const useProducts = () => {
-  return useQuery({
-    queryKey: ["products"],
-    queryFn: fetchProducts,
+export const useProducts = (limit?: number, sort?: string) => {
+  return useQuery<Product[], Error>({
+    queryKey: ["products", limit, sort],
+    queryFn: () => fetchProducts(limit, sort),
     staleTime: 10000,
   });
 };
