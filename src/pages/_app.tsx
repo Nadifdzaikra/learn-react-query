@@ -17,6 +17,7 @@ const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   // Jika halaman punya `getLayout`, gunakan itu. Kalau tidak, tampilkan langsung `Component`
+  // const isDashboard = router.pathname.startsWith("/dashboard");
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (

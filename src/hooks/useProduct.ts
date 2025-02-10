@@ -14,6 +14,7 @@ export const useProducts = (limit?: number, sort?: string) => {
     queryKey: ["products", limit, sort],
     queryFn: () => fetchProducts(limit, sort),
     staleTime: 10000,
+    refetchOnWindowFocus: false,
   });
 };
 
